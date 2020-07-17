@@ -1,0 +1,2660 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20202.20.0614.2338                               -->
+<workbook source-build='2020.2.2 (20202.20.0614.2338)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <_.fcp.SetMembershipControl.true...SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <VizInTooltipHideWorksheet />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='covid_timeline' path='/workbooks' revision='1.4' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='US_Mobility_Processed' inline='true' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='US_Mobility_Report' name='textscan.0vgh0i51mvx7sf13q8i721dq825n'>
+            <connection class='textscan' directory='C:/Users/ehuang/Desktop/w209_final' filename='US_Mobility_Report.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+          <named-connection caption='US_Mobility_Report_preprocess' name='textscan.0eypjn21qe83jp19figu80pvvhtk'>
+            <connection class='textscan' directory='C:/Users/ehuang/Desktop/w209_final/data' filename='US_Mobility_Report_preprocess.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+          <named-connection caption='covid_death_proccessed' name='textscan.01g73pb16qpaua17xfio10f59q0w'>
+            <connection class='textscan' directory='C:/Users/ehuang/Desktop/w209_final/ernesto' filename='covid_death_proccessed.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.0eypjn21qe83jp19figu80pvvhtk' name='US_Mobility_Report_preprocess.csv' table='[US_Mobility_Report_preprocess#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='string' name='country_region_code' ordinal='1' />
+            <column datatype='string' name='country_region' ordinal='2' />
+            <column datatype='string' name='state' ordinal='3' />
+            <column datatype='string' name='county' ordinal='4' />
+            <column datatype='string' name='iso_3166_2_code' ordinal='5' />
+            <column datatype='integer' name='census_fips_code' ordinal='6' />
+            <column datatype='date' name='date' ordinal='7' />
+            <column datatype='real' name='retail_and_recreation' ordinal='8' />
+            <column datatype='real' name='grocery_and_pharmacy' ordinal='9' />
+            <column datatype='real' name='parks' ordinal='10' />
+            <column datatype='real' name='transit_stations' ordinal='11' />
+            <column datatype='real' name='workplaces' ordinal='12' />
+            <column datatype='real' name='residential' ordinal='13' />
+            <column datatype='real' name='avg_change' ordinal='14' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='textscan.0eypjn21qe83jp19figu80pvvhtk' name='US_Mobility_Report_preprocess.csv' table='[US_Mobility_Report_preprocess#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='string' name='country_region_code' ordinal='1' />
+              <column datatype='string' name='country_region' ordinal='2' />
+              <column datatype='string' name='state' ordinal='3' />
+              <column datatype='string' name='county' ordinal='4' />
+              <column datatype='string' name='iso_3166_2_code' ordinal='5' />
+              <column datatype='integer' name='census_fips_code' ordinal='6' />
+              <column datatype='date' name='date' ordinal='7' />
+              <column datatype='real' name='retail_and_recreation' ordinal='8' />
+              <column datatype='real' name='grocery_and_pharmacy' ordinal='9' />
+              <column datatype='real' name='parks' ordinal='10' />
+              <column datatype='real' name='transit_stations' ordinal='11' />
+              <column datatype='real' name='workplaces' ordinal='12' />
+              <column datatype='real' name='residential' ordinal='13' />
+              <column datatype='real' name='avg_change' ordinal='14' />
+            </columns>
+          </relation>
+          <relation connection='textscan.01g73pb16qpaua17xfio10f59q0w' name='covid_cases_proccessed.csv' table='[covid_cases_proccessed#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='F1' ordinal='0' />
+              <column datatype='date' name='Date' ordinal='1' />
+              <column datatype='integer' name='Cases_Sum' ordinal='2' />
+              <column datatype='string' name='State' ordinal='3' />
+              <column datatype='real' name='Cases_Day' ordinal='4' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Cases_Day]' value='[covid_cases_proccessed.csv].[Cases_Day]' />
+          <map key='[Cases_Sum]' value='[covid_cases_proccessed.csv].[Cases_Sum]' />
+          <map key='[Date]' value='[covid_cases_proccessed.csv].[Date]' />
+          <map key='[F1 (covid_cases_proccessed.csv)]' value='[covid_cases_proccessed.csv].[F1]' />
+          <map key='[F1]' value='[US_Mobility_Report_preprocess.csv].[F1]' />
+          <map key='[State]' value='[covid_cases_proccessed.csv].[State]' />
+          <map key='[avg_change]' value='[US_Mobility_Report_preprocess.csv].[avg_change]' />
+          <map key='[census_fips_code]' value='[US_Mobility_Report_preprocess.csv].[census_fips_code]' />
+          <map key='[country_region]' value='[US_Mobility_Report_preprocess.csv].[country_region]' />
+          <map key='[country_region_code]' value='[US_Mobility_Report_preprocess.csv].[country_region_code]' />
+          <map key='[county]' value='[US_Mobility_Report_preprocess.csv].[county]' />
+          <map key='[date]' value='[US_Mobility_Report_preprocess.csv].[date]' />
+          <map key='[grocery_and_pharmacy]' value='[US_Mobility_Report_preprocess.csv].[grocery_and_pharmacy]' />
+          <map key='[iso_3166_2_code]' value='[US_Mobility_Report_preprocess.csv].[iso_3166_2_code]' />
+          <map key='[parks]' value='[US_Mobility_Report_preprocess.csv].[parks]' />
+          <map key='[residential]' value='[US_Mobility_Report_preprocess.csv].[residential]' />
+          <map key='[retail_and_recreation]' value='[US_Mobility_Report_preprocess.csv].[retail_and_recreation]' />
+          <map key='[state]' value='[US_Mobility_Report_preprocess.csv].[state]' />
+          <map key='[transit_stations]' value='[US_Mobility_Report_preprocess.csv].[transit_stations]' />
+          <map key='[workplaces]' value='[US_Mobility_Report_preprocess.csv].[workplaces]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[covid_cases_proccessed.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_region_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_region_code]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>country_region_code</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_region]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>country_region</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[county]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>county</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>iso_3166_2_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[iso_3166_2_code]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>iso_3166_2_code</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>census_fips_code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[census_fips_code]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>census_fips_code</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>retail_and_recreation</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[retail_and_recreation]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>retail_and_recreation</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>grocery_and_pharmacy</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[grocery_and_pharmacy]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>grocery_and_pharmacy</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>parks</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[parks]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>parks</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>transit_stations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[transit_stations]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>transit_stations</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>workplaces</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[workplaces]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>workplaces</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>residential</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[residential]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>residential</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_change]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>avg_change</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1 (covid_cases_proccessed.csv)]</local-name>
+            <parent-name>[covid_cases_proccessed.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Date]</local-name>
+            <parent-name>[covid_cases_proccessed.csv]</parent-name>
+            <remote-alias>Date</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Cases_Sum</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Cases_Sum]</local-name>
+            <parent-name>[covid_cases_proccessed.csv]</parent-name>
+            <remote-alias>Cases_Sum</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[State]</local-name>
+            <parent-name>[covid_cases_proccessed.csv]</parent-name>
+            <remote-alias>State</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Cases_Day</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Cases_Day]</local-name>
+            <parent-name>[covid_cases_proccessed.csv]</parent-name>
+            <remote-alias>Cases_Day</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:grocery_and_pharmacy:qk]&quot;' value='Grocery &amp; Pharmacy' />
+          <alias key='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:parks:qk]&quot;' value='Parks' />
+          <alias key='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:residential:qk]&quot;' value='Residential' />
+          <alias key='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:retail_and_recreation:qk]&quot;' value='Retail &amp; Recreation' />
+          <alias key='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:transit_stations:qk]&quot;' value='Transit Stations' />
+          <alias key='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:workplaces:qk]&quot;' value='Workplaces' />
+        </aliases>
+      </column>
+      <column caption='Cases Day' datatype='real' name='[Cases_Day]' role='dimension' type='quantitative' />
+      <column caption='Cases Sum' datatype='integer' name='[Cases_Sum]' role='measure' type='quantitative' />
+      <column caption='Date1' datatype='date' name='[Date]' role='dimension' type='ordinal' />
+      <column caption='F1 (covid cases proccessed.csv)' datatype='integer' name='[F1 (covid_cases_proccessed.csv)]' role='measure' type='quantitative' />
+      <column caption='State1' datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <_.fcp.ObjectModelTableType.true...column caption='US_Mobility_Report_preprocess.csv' datatype='table' name='[__tableau_internal_object_id__].[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='covid_cases_proccessed.csv' datatype='table' name='[__tableau_internal_object_id__].[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]' role='measure' type='quantitative' />
+      <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+      <column caption='Census Fips Code' datatype='integer' name='[census_fips_code]' role='dimension' type='ordinal' />
+      <column caption='Country Region' datatype='string' name='[country_region]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country Region Code' datatype='string' name='[country_region_code]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='County' datatype='string' name='[county]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Grocery And Pharmacy' datatype='real' name='[grocery_and_pharmacy]' role='measure' type='quantitative' />
+      <column caption='Iso 3166 2 Code' datatype='string' name='[iso_3166_2_code]' role='dimension' type='nominal' />
+      <column caption='Parks' datatype='real' name='[parks]' role='measure' type='quantitative' />
+      <column caption='Residential' datatype='real' name='[residential]' role='measure' type='quantitative' />
+      <column caption='Retail And Recreation' datatype='real' name='[retail_and_recreation]' role='measure' type='quantitative' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Transit Stations' datatype='real' name='[transit_stations]' role='measure' type='quantitative' />
+      <column caption='Workplaces' datatype='real' name='[workplaces]' role='measure' type='quantitative' />
+      <column-instance column='[grocery_and_pharmacy]' derivation='Avg' name='[avg:grocery_and_pharmacy:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[parks]' derivation='Avg' name='[avg:parks:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[residential]' derivation='Avg' name='[avg:residential:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[retail_and_recreation]' derivation='Avg' name='[avg:retail_and_recreation:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[transit_stations]' derivation='Avg' name='[avg:transit_stations:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[workplaces]' derivation='Avg' name='[avg:workplaces:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Cases_Day]' derivation='None' name='[none:Cases_Day:ok]' pivot='key' type='ordinal' />
+      <group caption='Tooltip (Cases Day,State)' hidden='true' name='[Tooltip (Cases Day,State)]' name-style='unqualified' user:auto-column='sheet_link' user:ui-vit-column='true'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:Cases_Day:ok]' />
+          <groupfilter function='level-members' level='[state]' />
+        </groupfilter>
+      </group>
+      <group caption='Tooltip (State)' hidden='true' name='[Tooltip (State)]' name-style='unqualified' user:auto-column='sheet_link' user:ui-vit-column='true'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[state]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/ehuang/Desktop/w209_final/ellie/US_Mobility_Processed.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0' table='[Extract].[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+            <relation name='US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0' table='[Extract].[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]' type='table' />
+            <relation name='covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457' table='[Extract].[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]' type='table' />
+          </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+          <cols>
+            <map key='[Cases_Day]' value='[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457].[Cases_Day]' />
+            <map key='[Cases_Sum]' value='[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457].[Cases_Sum]' />
+            <map key='[Date]' value='[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457].[Date]' />
+            <map key='[F1 (covid_cases_proccessed.csv)]' value='[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457].[F1]' />
+            <map key='[F1]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[F1]' />
+            <map key='[State]' value='[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457].[State]' />
+            <map key='[avg_change]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[avg_change]' />
+            <map key='[census_fips_code]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[census_fips_code]' />
+            <map key='[country_region]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[country_region]' />
+            <map key='[country_region_code]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[country_region_code]' />
+            <map key='[county]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[county]' />
+            <map key='[date]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[date]' />
+            <map key='[grocery_and_pharmacy]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[grocery_and_pharmacy]' />
+            <map key='[iso_3166_2_code]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[iso_3166_2_code]' />
+            <map key='[parks]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[parks]' />
+            <map key='[residential]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[residential]' />
+            <map key='[retail_and_recreation]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[retail_and_recreation]' />
+            <map key='[state]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[state]' />
+            <map key='[transit_stations]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[transit_stations]' />
+            <map key='[workplaces]' value='[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0].[workplaces]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>F1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[F1]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>F1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>298720</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>country_region_code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country_region_code]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>country_region_code</remote-alias>
+              <ordinal>1</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>country_region</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country_region]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>country_region</remote-alias>
+              <ordinal>2</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[state]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>state</remote-alias>
+              <ordinal>3</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>62</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>county</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[county]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>county</remote-alias>
+              <ordinal>4</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7566</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>iso_3166_2_code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[iso_3166_2_code]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>iso_3166_2_code</remote-alias>
+              <ordinal>5</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>census_fips_code</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[census_fips_code]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>census_fips_code</remote-alias>
+              <ordinal>6</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>16692</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>7</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>114</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>retail_and_recreation</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[retail_and_recreation]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>retail_and_recreation</remote-alias>
+              <ordinal>8</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2811</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>grocery_and_pharmacy</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[grocery_and_pharmacy]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>grocery_and_pharmacy</remote-alias>
+              <ordinal>9</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3041</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>parks</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[parks]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>parks</remote-alias>
+              <ordinal>10</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19124</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>transit_stations</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[transit_stations]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>transit_stations</remote-alias>
+              <ordinal>11</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6782</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>workplaces</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[workplaces]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>workplaces</remote-alias>
+              <ordinal>12</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>724</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>residential</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[residential]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>residential</remote-alias>
+              <ordinal>13</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3956</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_change</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[avg_change]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]</parent-name>
+              <remote-alias>avg_change</remote-alias>
+              <ordinal>14</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>48589</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>F1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[F1 (covid_cases_proccessed.csv)]</local-name>
+              <parent-name>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</parent-name>
+              <remote-alias>F1</remote-alias>
+              <ordinal>15</ordinal>
+              <family>covid_cases_proccessed.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>179</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Date]</local-name>
+              <parent-name>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</parent-name>
+              <remote-alias>Date</remote-alias>
+              <ordinal>16</ordinal>
+              <family>covid_cases_proccessed.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>179</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Cases_Sum</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Cases_Sum]</local-name>
+              <parent-name>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</parent-name>
+              <remote-alias>Cases_Sum</remote-alias>
+              <ordinal>17</ordinal>
+              <family>covid_cases_proccessed.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2887</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>State</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[State]</local-name>
+              <parent-name>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</parent-name>
+              <remote-alias>State</remote-alias>
+              <ordinal>18</ordinal>
+              <family>covid_cases_proccessed.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>51</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Cases_Day</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Cases_Day]</local-name>
+              <parent-name>[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]</parent-name>
+              <remote-alias>Cases_Day</remote-alias>
+              <ordinal>19</ordinal>
+              <family>covid_cases_proccessed.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1123</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='US_Mobility_Report_preprocess.csv' id='US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0'>
+            <properties context=''>
+              <relation connection='textscan.0eypjn21qe83jp19figu80pvvhtk' name='US_Mobility_Report_preprocess.csv' table='[US_Mobility_Report_preprocess#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='string' name='country_region_code' ordinal='1' />
+                  <column datatype='string' name='country_region' ordinal='2' />
+                  <column datatype='string' name='state' ordinal='3' />
+                  <column datatype='string' name='county' ordinal='4' />
+                  <column datatype='string' name='iso_3166_2_code' ordinal='5' />
+                  <column datatype='integer' name='census_fips_code' ordinal='6' />
+                  <column datatype='date' name='date' ordinal='7' />
+                  <column datatype='real' name='retail_and_recreation' ordinal='8' />
+                  <column datatype='real' name='grocery_and_pharmacy' ordinal='9' />
+                  <column datatype='real' name='parks' ordinal='10' />
+                  <column datatype='real' name='transit_stations' ordinal='11' />
+                  <column datatype='real' name='workplaces' ordinal='12' />
+                  <column datatype='real' name='residential' ordinal='13' />
+                  <column datatype='real' name='avg_change' ordinal='14' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0' table='[Extract].[US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0]' type='table' />
+            </properties>
+          </object>
+          <object caption='covid_cases_proccessed.csv' id='covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457'>
+            <properties context=''>
+              <relation connection='textscan.01g73pb16qpaua17xfio10f59q0w' name='covid_cases_proccessed.csv' table='[covid_cases_proccessed#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='F1' ordinal='0' />
+                  <column datatype='date' name='Date' ordinal='1' />
+                  <column datatype='integer' name='Cases_Sum' ordinal='2' />
+                  <column datatype='string' name='State' ordinal='3' />
+                  <column datatype='real' name='Cases_Day' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457' table='[Extract].[covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[date]' />
+                <expression op='[Date]' />
+              </expression>
+              <expression op='='>
+                <expression op='[state]' />
+                <expression op='[State]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='US_Mobility_Report_preprocess.csv_E2B32BF1D6F44115B5C0BF573EEAA8C0' />
+            <second-end-point object-id='covid_cases_proccessed.csv_728981DBC2744CFCA4F6D66BED131457' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Feb 16-24'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7' fontsize='12'>Feb 16-24: </run>
+            <run fontcolor='#3c4245' fontsize='12'>The WHO-China Joint mission, which included experts from Canada, Germany, Japan, Nigeria, Republic of Korea, Russia, Singapore and the US (CDC, NIH) spent time in Beijing and also travelled to Wuhan and two other cities. They spoke with health officials, scientists and health workers in health facilities (maintaining physical distancing)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column-instance column='[avg_change]' derivation='Avg' name='[avg:avg_change:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]' included-values='in-range'>
+            <min>#2020-02-16#</min>
+            <max>#2020-02-24#</max>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:state:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter from='&quot;Arizona&quot;' function='range' level='[none:state:nk]' to='&quot;Georgia&quot;' />
+              <groupfilter from='&quot;Idaho&quot;' function='range' level='[none:state:nk]' to='&quot;Wyoming&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-6952754.6611602204' min='-14238588.862947423' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6411088.517203426' min='2734750.0310114808' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#00557f</color>
+                <color>#0c5e87</color>
+                <color>#1a688f</color>
+                <color>#297397</color>
+                <color>#3a7e9f</color>
+                <color>#4c89a7</color>
+                <color>#6095b0</color>
+                <color>#75a2b8</color>
+                <color>#8bafc0</color>
+                <color>#a4bcc8</color>
+                <color>#bdcad0</color>
+                <color>#d9d9d9</color>
+                <color>#d7c4c9</color>
+                <color>#d5b1b9</color>
+                <color>#d49daa</color>
+                <color>#d28a9b</color>
+                <color>#d1778c</color>
+                <color>#cf647d</color>
+                <color>#ce526f</color>
+                <color>#cc3f60</color>
+                <color>#cb2e52</color>
+                <color>#c91c44</color>
+                <color>#c80b37</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' value='Avg Change in Mobility'>
+              <formatted-text>
+                <run>Avg Change in Mobility</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='b01002_001e' value='false' />
+            <format attr='enabled' id='b01002_002e' value='false' />
+            <format attr='enabled' id='b01002_003e' value='false' />
+            <format attr='enabled' id='dp02_0001e' value='false' />
+            <format attr='enabled' id='dp02_0015e' value='false' />
+            <format attr='enabled' id='dp03_0027e_plus_dp03_0029e' value='false' />
+            <format attr='enabled' id='dp03_0028e' value='false' />
+            <format attr='enabled' id='dp03_0030e_plus_dp03_0031e' value='false' />
+            <format attr='enabled' id='dp03_0062e' value='false' />
+            <format attr='enabled' id='dp03_0088e' value='false' />
+            <format attr='enabled' id='dp04_0001e' value='false' />
+            <format attr='enabled' id='dp04_0046e' value='false' />
+            <format attr='enabled' id='dp04_0047e' value='false' />
+            <format attr='enabled' id='dp04_0089e' value='false' />
+            <format attr='enabled' id='dp05_0001e' value='false' />
+            <format attr='enabled' id='dp05_0002e_div_dp05_0003e' value='false' />
+            <format attr='enabled' id='dp05_0032e' value='false' />
+            <format attr='enabled' id='dp05_0033e' value='false' />
+            <format attr='enabled' id='dp05_0034e' value='false' />
+            <format attr='enabled' id='dp05_0039e' value='false' />
+            <format attr='enabled' id='dp05_0047e' value='false' />
+            <format attr='enabled' id='dp05_0053e' value='false' />
+            <format attr='enabled' id='dp05_0066e' value='false' />
+            <format attr='enabled' id='dp05_0077e' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+          <style-rule element='map-data-layer'>
+            <format attr='palette' value='tableau-map-blue-green-light' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' />
+              <text column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]' />
+              <geometry column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run>Avg Change by Category in </run>
+                <run bold='true'><![CDATA[<[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[<Sheet name="Tootip" maxwidth="500" maxheight="500" filter="<All Fields>">]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='stroke-color' value='#ffffff67' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{89BF4CBC-F1A8-4A4D-B84C-46934FCF62D5}' />
+    </worksheet>
+    <worksheet name='Feb 16-24 (2)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7' fontsize='12'>Feb 16-24: </run>
+            <run fontcolor='#3c4245' fontsize='12'>The WHO-China Joint mission, which included experts from Canada, Germany, Japan, Nigeria, Republic of Korea, Russia, Singapore and the US (CDC, NIH) spent time in Beijing and also travelled to Wuhan and two other cities. They spoke with health officials, scientists and health workers in health facilities (maintaining physical distancing)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column-instance column='[avg_change]' derivation='Avg' name='[avg:avg_change:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]' included-values='in-range'>
+            <min>#2020-02-16#</min>
+            <max>#2020-02-24#</max>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:state:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter from='&quot;Arizona&quot;' function='range' level='[none:state:nk]' to='&quot;Georgia&quot;' />
+              <groupfilter from='&quot;Idaho&quot;' function='range' level='[none:state:nk]' to='&quot;Wyoming&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-6952754.6611602204' min='-14238588.862947423' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6411088.517203426' min='2734750.0310114808' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#00557f</color>
+                <color>#0c5e87</color>
+                <color>#1a688f</color>
+                <color>#297397</color>
+                <color>#3a7e9f</color>
+                <color>#4c89a7</color>
+                <color>#6095b0</color>
+                <color>#75a2b8</color>
+                <color>#8bafc0</color>
+                <color>#a4bcc8</color>
+                <color>#bdcad0</color>
+                <color>#d9d9d9</color>
+                <color>#d7c4c9</color>
+                <color>#d5b1b9</color>
+                <color>#d49daa</color>
+                <color>#d28a9b</color>
+                <color>#d1778c</color>
+                <color>#cf647d</color>
+                <color>#ce526f</color>
+                <color>#cc3f60</color>
+                <color>#cb2e52</color>
+                <color>#c91c44</color>
+                <color>#c80b37</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' value='Avg Change in Mobility'>
+              <formatted-text>
+                <run>Avg Change in Mobility</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='b01002_001e' value='false' />
+            <format attr='enabled' id='b01002_002e' value='false' />
+            <format attr='enabled' id='b01002_003e' value='false' />
+            <format attr='enabled' id='dp02_0001e' value='false' />
+            <format attr='enabled' id='dp02_0015e' value='false' />
+            <format attr='enabled' id='dp03_0027e_plus_dp03_0029e' value='false' />
+            <format attr='enabled' id='dp03_0028e' value='false' />
+            <format attr='enabled' id='dp03_0030e_plus_dp03_0031e' value='false' />
+            <format attr='enabled' id='dp03_0062e' value='false' />
+            <format attr='enabled' id='dp03_0088e' value='false' />
+            <format attr='enabled' id='dp04_0001e' value='false' />
+            <format attr='enabled' id='dp04_0046e' value='false' />
+            <format attr='enabled' id='dp04_0047e' value='false' />
+            <format attr='enabled' id='dp04_0089e' value='false' />
+            <format attr='enabled' id='dp05_0001e' value='false' />
+            <format attr='enabled' id='dp05_0002e_div_dp05_0003e' value='false' />
+            <format attr='enabled' id='dp05_0032e' value='false' />
+            <format attr='enabled' id='dp05_0033e' value='false' />
+            <format attr='enabled' id='dp05_0034e' value='false' />
+            <format attr='enabled' id='dp05_0039e' value='false' />
+            <format attr='enabled' id='dp05_0047e' value='false' />
+            <format attr='enabled' id='dp05_0053e' value='false' />
+            <format attr='enabled' id='dp05_0066e' value='false' />
+            <format attr='enabled' id='dp05_0077e' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+          <style-rule element='map-data-layer'>
+            <format attr='palette' value='tableau-map-blue-green-light' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' />
+              <text column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]' />
+              <geometry column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run>Avg Change by Category in </run>
+                <run bold='true'><![CDATA[<[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[<Sheet name="Tootip" maxwidth="500" maxheight="500" filter="<All Fields>">]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='trendline'>
+                <format attr='stroke-color' value='#ffffff67' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{10ED0A1D-330C-4852-A12D-0684375D4140}' />
+    </worksheet>
+    <worksheet name='Feb 29'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7' fontsize='12'>Feb 29: </run>
+            <run fontsize='12'>the authorities announced that a patient near Seattle had died from the coronavirus, in what was believed to be the </run>
+            <run auto-url='true' fontcolor='#326891' fontsize='12' hyperlink='tabdoc:load-url url=&amp;quot;first coronavirus death&amp;quot;' underline='true'>first coronavirus death</run>
+            <run fontsize='12'> in the United States at the time. As the number of global cases rose to nearly 87,000, the Trump administration </run>
+            <run auto-url='true' fontcolor='#326891' fontsize='12' hyperlink='tabdoc:load-url url=&amp;quot;issued its highest-level warning&amp;quot;' underline='true'>issued its highest-level warning</run>
+            <run fontsize='12'>, known as a “do not travel” warning, for areas in Italy and South Korea most affected by the virus.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column-instance column='[avg_change]' derivation='Avg' name='[avg:avg_change:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]' included-values='in-range'>
+            <min>#2020-02-29#</min>
+            <max>#2020-02-29#</max>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:state:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter from='&quot;Arizona&quot;' function='range' level='[none:state:nk]' to='&quot;Georgia&quot;' />
+              <groupfilter from='&quot;Idaho&quot;' function='range' level='[none:state:nk]' to='&quot;Wyoming&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7098747.9216850968' min='-14589193.364650046' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6762117.0249722227' min='2591566.3314169282' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#00557f</color>
+                <color>#0c5e87</color>
+                <color>#1a688f</color>
+                <color>#297397</color>
+                <color>#3a7e9f</color>
+                <color>#4c89a7</color>
+                <color>#6095b0</color>
+                <color>#75a2b8</color>
+                <color>#8bafc0</color>
+                <color>#a4bcc8</color>
+                <color>#bdcad0</color>
+                <color>#d9d9d9</color>
+                <color>#d7c4c9</color>
+                <color>#d5b1b9</color>
+                <color>#d49daa</color>
+                <color>#d28a9b</color>
+                <color>#d1778c</color>
+                <color>#cf647d</color>
+                <color>#ce526f</color>
+                <color>#cc3f60</color>
+                <color>#cb2e52</color>
+                <color>#c91c44</color>
+                <color>#c80b37</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' value='Avg Change in Mobility'>
+              <formatted-text>
+                <run>Avg Change in Mobility</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' />
+              <text column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]' />
+              <geometry column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run>Avg Change by Category in </run>
+                <run bold='true'><![CDATA[<[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[<Sheet name="Tootip" maxwidth="500" maxheight="500" filter="<All Fields>">]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{DC247A5C-BB95-46B1-A291-52C97EF646BF}' />
+    </worksheet>
+    <worksheet name='Mar 11'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7' fontsize='12'>March 11: </run>
+            <run fontcolor='#3c4245' fontsize='12'>Deeply concerned both by the alarming levels of spread and severity, and by the alarming levels of inaction, WHO made the assessment that COVID-19 can be characterized as a pandemic.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column-instance column='[avg_change]' derivation='Avg' name='[avg:avg_change:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]' included-values='in-range'>
+            <min>#2020-03-11#</min>
+            <max>#2020-03-11#</max>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:state:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter from='&quot;Arizona&quot;' function='range' level='[none:state:nk]' to='&quot;Georgia&quot;' />
+              <groupfilter from='&quot;Idaho&quot;' function='range' level='[none:state:nk]' to='&quot;Wyoming&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7098747.9216850968' min='-14589193.364650046' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6762117.0249722227' min='2591566.3314169282' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#00557f</color>
+                <color>#0c5e87</color>
+                <color>#1a688f</color>
+                <color>#297397</color>
+                <color>#3a7e9f</color>
+                <color>#4c89a7</color>
+                <color>#6095b0</color>
+                <color>#75a2b8</color>
+                <color>#8bafc0</color>
+                <color>#a4bcc8</color>
+                <color>#bdcad0</color>
+                <color>#d9d9d9</color>
+                <color>#d7c4c9</color>
+                <color>#d5b1b9</color>
+                <color>#d49daa</color>
+                <color>#d28a9b</color>
+                <color>#d1778c</color>
+                <color>#cf647d</color>
+                <color>#ce526f</color>
+                <color>#cc3f60</color>
+                <color>#cb2e52</color>
+                <color>#c91c44</color>
+                <color>#c80b37</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' value='Avg Change in Mobility'>
+              <formatted-text>
+                <run>Avg Change in Mobility</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' />
+              <text column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]' />
+              <geometry column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run>Avg Change by Category in </run>
+                <run bold='true'><![CDATA[<[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[<Sheet name="Tootip" maxwidth="500" maxheight="500" filter="<All Fields>">]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{7427C7F3-9F22-4C15-8009-E9FD56BE1076}' />
+    </worksheet>
+    <worksheet name='Mar 13'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7' fontsize='12'>March 13: </run>
+            <run fontcolor='#3c4245' fontsize='12'>President Trump declared a national emergency</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column-instance column='[avg_change]' derivation='Avg' name='[avg:avg_change:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]' included-values='in-range'>
+            <min>#2020-03-13#</min>
+            <max>#2020-03-13#</max>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:state:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter from='&quot;Arizona&quot;' function='range' level='[none:state:nk]' to='&quot;Georgia&quot;' />
+              <groupfilter from='&quot;Idaho&quot;' function='range' level='[none:state:nk]' to='&quot;Wyoming&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7098747.9216850968' min='-14589193.364650046' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6762117.0249722227' min='2591566.3314169282' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' reverse='true' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#c80b37</color>
+                <color>#c91c44</color>
+                <color>#cb2e52</color>
+                <color>#cc3f60</color>
+                <color>#ce526f</color>
+                <color>#cf647d</color>
+                <color>#d1778c</color>
+                <color>#d28a9b</color>
+                <color>#d49daa</color>
+                <color>#d5b1b9</color>
+                <color>#d7c4c9</color>
+                <color>#d9d9d9</color>
+                <color>#bdcad0</color>
+                <color>#a4bcc8</color>
+                <color>#8bafc0</color>
+                <color>#75a2b8</color>
+                <color>#6095b0</color>
+                <color>#4c89a7</color>
+                <color>#3a7e9f</color>
+                <color>#297397</color>
+                <color>#1a688f</color>
+                <color>#0c5e87</color>
+                <color>#00557f</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' value='Avg Change in Mobility'>
+              <formatted-text>
+                <run>Avg Change in Mobility</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' />
+              <text column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]' />
+              <geometry column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run>Avg Change by Category in </run>
+                <run bold='true'><![CDATA[<[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[<Sheet name="Tootip" maxwidth="500" maxheight="500" filter="<All Fields>">]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{236B1DD1-5904-47C9-A310-9BDCE3873C6D}' />
+    </worksheet>
+    <worksheet name='Mar 26'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7' fontsize='12'>March 26: </run>
+            <run fontsize='12'>The United States officially became the country </run>
+            <run fontcolor='#326891' fontsize='12' underline='true'>hardest hit by the pandemic</run>
+            <run fontsize='12'>, with at least 81,321 confirmed infections and more than 1,000 deaths. This was more reported cases than in China, Italy or any other country at the time.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column-instance column='[avg_change]' derivation='Avg' name='[avg:avg_change:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]' included-values='in-range'>
+            <min>#2020-03-26#</min>
+            <max>#2020-03-26#</max>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:state:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter from='&quot;Arizona&quot;' function='range' level='[none:state:nk]' to='&quot;Georgia&quot;' />
+              <groupfilter from='&quot;Idaho&quot;' function='range' level='[none:state:nk]' to='&quot;Wyoming&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7098747.9216850968' min='-14589193.364650046' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6762117.0249722227' min='2591566.3314169282' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' reverse='true' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#c80b37</color>
+                <color>#c91c44</color>
+                <color>#cb2e52</color>
+                <color>#cc3f60</color>
+                <color>#ce526f</color>
+                <color>#cf647d</color>
+                <color>#d1778c</color>
+                <color>#d28a9b</color>
+                <color>#d49daa</color>
+                <color>#d5b1b9</color>
+                <color>#d7c4c9</color>
+                <color>#d9d9d9</color>
+                <color>#bdcad0</color>
+                <color>#a4bcc8</color>
+                <color>#8bafc0</color>
+                <color>#75a2b8</color>
+                <color>#6095b0</color>
+                <color>#4c89a7</color>
+                <color>#3a7e9f</color>
+                <color>#297397</color>
+                <color>#1a688f</color>
+                <color>#0c5e87</color>
+                <color>#00557f</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' value='Avg Change in Mobility'>
+              <formatted-text>
+                <run>Avg Change in Mobility</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' />
+              <text column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]' />
+              <geometry column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Geometry (generated)]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run>Avg Change by Category in </run>
+                <run bold='true'><![CDATA[<[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true'><![CDATA[<Sheet name="Tootip" maxwidth="500" maxheight="500" filter="<All Fields>">]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{8D98136C-E61D-4201-B154-19997480C877}' />
+    </worksheet>
+    <worksheet name='Mar 30'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#4e79a7' fontsize='12'>March 30: </run>
+            <run fontsize='12'>Most of United States issue stay at home orders.</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column-instance column='[avg_change]' derivation='Avg' name='[avg:avg_change:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Change' datatype='real' name='[avg_change]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='None' name='[none:date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]' included-values='in-range'>
+            <min>#2020-03-30#</min>
+            <max>#2020-03-30#</max>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:state:nk]' member='&quot;Alabama&quot;' />
+              <groupfilter from='&quot;Arizona&quot;' function='range' level='[none:state:nk]' to='&quot;Georgia&quot;' />
+              <groupfilter from='&quot;Idaho&quot;' function='range' level='[none:state:nk]' to='&quot;Wyoming&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:date:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7098747.9216850968' min='-14589193.364650046' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6762117.0249722227' min='2591566.3314169282' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' reverse='true' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#c80b37</color>
+                <color>#c91c44</color>
+                <color>#cb2e52</color>
+                <color>#cc3f60</color>
+                <color>#ce526f</color>
+                <color>#cf647d</color>
+                <color>#d1778c</color>
+                <color>#d28a9b</color>
+                <color>#d49daa</color>
+                <color>#d5b1b9</color>
+                <color>#d7c4c9</color>
+                <color>#d9d9d9</color>
+                <color>#bdcad0</color>
+                <color>#a4bcc8</color>
+                <color>#8bafc0</color>
+                <color>#75a2b8</color>
+                <color>#6095b0</color>
+                <color>#4c89a7</color>
+                <color>#3a7e9f</color>
+                <color>#297397</color>
+                <color>#1a688f</color>
+                <color>#0c5e87</color>
+                <color>#00557f</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' value='Avg Change in Mobility'>
+              <formatted-text>
+                <run>Avg Change in Mobility</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' />
+              <text column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[none:state:nk]' />
+              <geometry column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{0C2D9FB0-5354-4C6C-B4F9-2CED50180618}' />
+    </worksheet>
+    <worksheet name='Tootip'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average Change by Category</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Processed' name='federated.0f8u3l90g4okj810lc1cv1vpe7dy' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0f8u3l90g4okj810lc1cv1vpe7dy'>
+            <column caption='Cases Day' datatype='real' name='[Cases_Day]' role='dimension' type='quantitative' />
+            <column-instance column='[grocery_and_pharmacy]' derivation='Avg' name='[avg:grocery_and_pharmacy:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[parks]' derivation='Avg' name='[avg:parks:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[residential]' derivation='Avg' name='[avg:residential:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[retail_and_recreation]' derivation='Avg' name='[avg:retail_and_recreation:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[transit_stations]' derivation='Avg' name='[avg:transit_stations:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[workplaces]' derivation='Avg' name='[avg:workplaces:qk]' pivot='key' type='quantitative' />
+            <column caption='Grocery And Pharmacy' datatype='real' name='[grocery_and_pharmacy]' role='measure' type='quantitative' />
+            <column-instance column='[Cases_Day]' derivation='None' name='[none:Cases_Day:ok]' pivot='key' type='ordinal' />
+            <column caption='Parks' datatype='real' name='[parks]' role='measure' type='quantitative' />
+            <column caption='Residential' datatype='real' name='[residential]' role='measure' type='quantitative' />
+            <column caption='Retail And Recreation' datatype='real' name='[retail_and_recreation]' role='measure' type='quantitative' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Transit Stations' datatype='real' name='[transit_stations]' role='measure' type='quantitative' />
+            <column caption='Workplaces' datatype='real' name='[workplaces]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:grocery_and_pharmacy:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:parks:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:residential:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:retail_and_recreation:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:workplaces:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:transit_stations:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:grocery_and_pharmacy:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:parks:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:residential:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:retail_and_recreation:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:workplaces:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:transit_stations:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Tooltip (Cases Day,State)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action - Tootip]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Cases_Day:ok]' />
+              <groupfilter function='level-members' level='[state]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Tooltip (State)]'>
+            <groupfilter function='member' level='[state]' member='&quot;Montana&quot;' user:ui-action-filter='[Action - Feb 16-25 Tootip]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[:Measure Names]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Tooltip (State)]</column>
+            <column>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Tooltip (Cases Day,State)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[:Measure Names]' value='106' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[:Measure Names]' value='53' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-orientation' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[:Measure Names]' value='-90' />
+            <format attr='text-format' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Multiple Values]' value='n#,##0;-#,##0' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Multiple Values]' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#00557f</color>
+                <color>#0c5e87</color>
+                <color>#1a688f</color>
+                <color>#297397</color>
+                <color>#3a7e9f</color>
+                <color>#4c89a7</color>
+                <color>#6095b0</color>
+                <color>#75a2b8</color>
+                <color>#8bafc0</color>
+                <color>#a4bcc8</color>
+                <color>#bdcad0</color>
+                <color>#d9d9d9</color>
+                <color>#d7c4c9</color>
+                <color>#d5b1b9</color>
+                <color>#d49daa</color>
+                <color>#d28a9b</color>
+                <color>#d1778c</color>
+                <color>#cf647d</color>
+                <color>#ce526f</color>
+                <color>#cc3f60</color>
+                <color>#cb2e52</color>
+                <color>#c91c44</color>
+                <color>#c80b37</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='318' />
+                <format attr='maxwidth' value='318' />
+                <format attr='minheight' value='272' />
+                <format attr='maxheight' value='272' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Multiple Values]</rows>
+        <cols>[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{45340037-08D2-4FBE-B17F-DE925C21F639}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='COVID Timeline' type='storyboard'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Mobility Changes in United States During Early COVID Response</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#00000000' />
+        </style-rule>
+        <style-rule element='story-description'>
+          <format attr='background-color' id='story-description_11' value='#00000000' />
+          <format attr='border-width' id='story-description_11' value='0' />
+          <format attr='border-style' id='story-description_11' value='none' />
+          <format attr='background-color' id='story-description_12' value='#00000000' />
+          <format attr='border-width' id='story-description_12' value='0' />
+          <format attr='border-style' id='story-description_12' value='none' />
+          <format attr='background-color' id='story-description_13' value='#00000000' />
+          <format attr='border-width' id='story-description_13' value='0' />
+          <format attr='border-style' id='story-description_13' value='none' />
+          <format attr='background-color' id='story-description_14' value='#00000000' />
+          <format attr='border-width' id='story-description_14' value='0' />
+          <format attr='border-style' id='story-description_14' value='none' />
+          <format attr='background-color' id='story-description_15' value='#00000000' />
+          <format attr='border-width' id='story-description_15' value='0' />
+          <format attr='border-style' id='story-description_15' value='none' />
+          <format attr='background-color' id='story-description_16' value='#00000000' />
+          <format attr='border-width' id='story-description_16' value='0' />
+          <format attr='border-style' id='story-description_16' value='none' />
+        </style-rule>
+      </style>
+      <size maxheight='964' maxwidth='1300' minheight='964' minwidth='1300' sizing-mode='fixed' />
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='2' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98340' id='9' param='vert' removable='false' w='98770' x='615' y='830'>
+            <zone _.fcp.SetMembershipControl.false...type='title' _.fcp.SetMembershipControl.true...type-v2='title' h='4253' id='10' w='98770' x='615' y='830'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='94087' id='7' param='vert' removable='false' w='98770' x='615' y='5083'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='94087' id='1' param='vert' removable='false' w='98770' x='615' y='5083'>
+                <zone _.fcp.SetMembershipControl.false...type='flipboard-nav' _.fcp.SetMembershipControl.true...type-v2='flipboard-nav' h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' w='98770' x='615' y='5083' />
+                <zone _.fcp.SetMembershipControl.false...type='flipboard' _.fcp.SetMembershipControl.true...type-v2='flipboard' h='83610' id='5' paired-zone-id='4' removable='false' w='98770' x='615' y='15560'>
+                  <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
+                    <story-points>
+                      <story-point caption='Feb 16-24' captured-sheet='Feb 16-24' id='1'>
+                        <capturedDeltas>
+                          <worksheet name='Feb 16-24'>
+                            <style delta-type='added'>
+                              <style-rule element='axis'>
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='7200679.3858808773' min='2306113.2644455829' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7281786.7801128887' min='-14149067.613213291' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                              </style-rule>
+                            </style>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Feb 29' captured-sheet='Feb 29' id='2'>
+                        <capturedDeltas>
+                          <worksheet name='Feb 29'>
+                            <style delta-type='added'>
+                              <style-rule element='axis'>
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='7194321.8704874786' min='2579671.4247107757' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7431072.0439079609' min='-14048193.888447067' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                              </style-rule>
+                            </style>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Mar 11' captured-sheet='Mar 11' id='3'>
+                        <capturedDeltas>
+                          <worksheet name='Mar 11'>
+                            <style delta-type='added'>
+                              <style-rule element='axis'>
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='7191316.3659693915' min='2515939.2335260878' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7340657.096428276' min='-14044857.234244348' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                              </style-rule>
+                            </style>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Mar 13' captured-sheet='Mar 13' id='4'>
+                        <capturedDeltas>
+                          <worksheet name='Mar 13'>
+                            <style delta-type='added'>
+                              <style-rule element='axis'>
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='7046579.4333160101' min='2431581.2039406295' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7387093.6086027585' min='-14004714.153200522' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                              </style-rule>
+                            </style>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Mar 26' captured-sheet='Mar 26' id='5'>
+                        <capturedDeltas>
+                          <worksheet name='Mar 26'>
+                            <style delta-type='added'>
+                              <style-rule element='axis'>
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='7043017.3178855423' min='2401102.6932687196' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7442111.9021755103' min='-13954912.125859439' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                              </style-rule>
+                            </style>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                      <story-point caption='Mar 30' captured-sheet='Mar 30' id='6'>
+                        <capturedDeltas>
+                          <worksheet name='Mar 30'>
+                            <style delta-type='added'>
+                              <style-rule element='axis'>
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Latitude (generated)]' field-type='quantitative' max='6752023.6401445074' min='2015858.6726895077' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+                                <encoding attr='space' class='0' field='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Longitude (generated)]' field-type='quantitative' max='-7354453.8491769172' min='-13999491.242985319' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+                              </style-rule>
+                            </style>
+                          </worksheet>
+                        </capturedDeltas>
+                      </story-point>
+                    </story-points>
+                  </flipboard>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' flipboard-zone-id='5' forceUpdate='true' h='9751' id='11' story-point-id='1' w='82692' x='1846' y='17220'>
+          <formatted-text>
+            <run bold='true' fontalignment='0' fontcolor='#4e79a7' fontname='Tableau Light' fontsize='12'>The WHO-China Joint mission, which included experts from Canada, Germany, Japan, Nigeria, Republic of Korea, Russia, Singapore and the US (CDC, NIH) spent time in Beijing and also travelled to Wuhan and two other cities. </run>
+            <run fontalignment='0' fontcolor='#000000' fontname='Tableau Light' fontsize='12'>They spoke with health officials, scientists and health workers in health facilities (maintaining physical distancing)</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' flipboard-zone-id='5' forceUpdate='true' h='7365' hidden='true' id='12' story-point-id='2' w='83538' x='2000' y='17531'>
+          <formatted-text>
+            <run fontalignment='0' fontcolor='#000000' fontname='Tableau Light' fontsize='12'>The authorities announced that </run>
+            <run bold='true' fontalignment='0' fontcolor='#4e79a7' fontname='Tableau Light' fontsize='12'>a patient near Seattle had died from the coronavirus. </run>
+            <run fontalignment='0' fontcolor='#000000' fontname='Tableau Light' fontsize='12'>As the number of global cases rose to nearly 87,000, the Trump administration issued its highest-level warning, known as a “do not travel” warning.</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' flipboard-zone-id='5' forceUpdate='true' h='6535' hidden='true' id='13' story-point-id='3' w='83462' x='2154' y='17635'>
+          <formatted-text>
+            <run fontalignment='0' fontcolor='#000000' fontname='Tableau Light' fontsize='12'>Deeply concerned both by the alarming levels of spread and severity, and by the alarming levels of inaction, </run>
+            <run bold='true' fontalignment='0' fontcolor='#4e79a7' fontname='Tableau Light' fontsize='12'>WHO made the assessment that COVID-19 can be characterized as a pandemic.</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' flipboard-zone-id='5' forceUpdate='true' h='4876' hidden='true' id='14' story-point-id='4' w='83538' x='2000' y='17739'>
+          <formatted-text>
+            <run bold='true' fontalignment='0' fontcolor='#4e79a7' fontname='Tableau Light' fontsize='12'>President Trump declared a national emergency in United States</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' flipboard-zone-id='5' forceUpdate='true' h='7261' hidden='true' id='15' story-point-id='5' w='82231' x='1923' y='17531'>
+          <formatted-text>
+            <run fontalignment='0' fontcolor='#000000' fontname='Tableau Light' fontsize='12'>The United States officially became the country hardest hit by the pandemic, with at least 81,321 confirmed infections and more than 1,000 deaths. </run>
+            <run bold='true' fontalignment='0' fontcolor='#4e79a7' fontname='Tableau Light' fontsize='12'>This was more reported cases than in China, Italy or any other country at the time.</run>
+          </formatted-text>
+        </zone>
+        <zone _.fcp.SetMembershipControl.false...type='text' _.fcp.SetMembershipControl.true...type-v2='text' flipboard-zone-id='5' forceUpdate='true' h='3112' hidden='true' id='16' story-point-id='6' w='83231' x='1923' y='17324'>
+          <formatted-text>
+            <run bold='true' fontalignment='0' fontcolor='#4e79a7' fontname='Tableau Light' fontsize='12'>Most of United States issue stay at home orders.</run>
+          </formatted-text>
+        </zone>
+      </zones>
+      <simple-id uuid='{B41CA50A-29BF-4FA3-852A-3C30170AB4E9}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='dashboard' name='COVID Timeline'>
+      <viewpoints />
+      <active id='4' />
+      <simple-id uuid='{35373C7F-1C7E-4A7D-9AB3-CB412FF56591}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Feb 16-24'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{FE9C41C5-3FD6-4E46-9834-47B00F313E80}' />
+    </window>
+    <window class='worksheet' name='Feb 16-24 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{E1F9D0AC-DEC6-4439-9C3B-475D22663646}' />
+    </window>
+    <window class='worksheet' name='Feb 29'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{E8F35E61-9693-4AC6-974A-51C1AAAC9BE1}' />
+    </window>
+    <window class='worksheet' name='Mar 11'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{B43B01DA-243A-4191-BE9C-67A0A06048A2}' />
+    </window>
+    <window class='worksheet' name='Mar 13'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{B95C2F46-1ADB-486A-B9D4-385A08B969E6}' />
+    </window>
+    <window class='worksheet' name='Mar 26'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{D21C8A48-7EC2-43E7-B825-A40F8E7AC45F}' />
+    </window>
+    <window class='worksheet' name='Mar 30'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[avg:avg_change:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{5F7E854E-CBB9-4870-BE09-749DE94C311A}' />
+    </window>
+    <window class='worksheet' name='Tootip'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0f8u3l90g4okj810lc1cv1vpe7dy].[Multiple Values]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3D31EC85-FDD0-4027-A8A7-B93176BB465D}' />
+    </window>
+  </windows>
+</workbook>
