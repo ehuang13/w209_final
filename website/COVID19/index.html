@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>COVID-19 Mobility Reports </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+  margin: 0;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/hyunchul78/w209/master/w209_prj_header.jpg" alt="Olympic" style="width:1300px;">
+        <div class="centered">
+            <h1>COVID-19: Mobility Report</h1>
+            <h3>W209 Final Project</h3>
+        </div>
+    </div>
+
+    <div id="navbar" class="">
+        <a href="http://people.ischool.berkeley.edu/~hyunchul78/COVID19/index.html#intro">Introduction</a>
+        <a href="http://people.ischool.berkeley.edu/~hyunchul78/COVID19/index.html#analysis1">Overview</a>
+        <a href="http://people.ischool.berkeley.edu/~hyunchul78/COVID19/index.html#team">About Us</a>
+        <a href="http://people.ischool.berkeley.edu/~hyunchul78/COVID19/index.html#reference">Reference</a>
+    </div>
+
+    <div id="wrapper">
+        <div class="content" id="intro">
+            <h1 id="intro">1 Introduction</h1>
+            <p style="font-size:20px"><strong>See how your community is moving around differently due to COVID-19</strong>
+            <br><br>
+              As global communities respond to COVID-19, we've heard from public health officials that the same type of aggregated, anonymized insights we use in products such as Google Maps could be helpful as they make critical decisions to combat COVID-19.
+<br><br>
+These Community Mobility Reports aim to provide insights into what has changed in response to policies aimed at combating COVID-19. The reports chart movement trends over time by geography, across different categories of places such as retail and recreation, groceries and pharmacies, parks, transit stations, workplaces, and residential.<br><br>
+                <strong>About this data:</strong> These datasets show how visits and length of stay at different places change compared to a baseline. Changes for each day are compared to a baseline value for that day of the week:
+
+The baseline is the median value, for the corresponding day of the week, during the 5-week period Jan 3–Feb 6, 2020.
+The datasets show trends over several months with the most recent data representing approximately 2-3 days ago—this is how long it takes to produce the datasets.
+
+We include categories that are useful to social distancing efforts as well as access to essential services. Detailed description can be found
+              <a href="https://www.google.com/covid19/mobility/data_documentation.html?hl=en#about-this-data">here</a>
+<br><br>
+We calculate these insights based on data from users who have opted-in to Location History for their Google Account, so the data represents a sample of our users. As with all samples, this may or may not represent the exact behavior of a wider population.
+
+We continue to improve our reports as places close and reopen. We updated the way we calculate changes for
+              <p style="color:Blue; font-size: 20px;">Grocery & pharmacy</p>
+              <p style="color:Blue; font-size: 20px;">Retail & recreation</p>
+              <p style="color:Blue; font-size: 20px;">Transit stations</p>
+              <p style="color:Blue; font-size: 20px;">Parks categories</p>
+              <p style="font-size: 20px;">For regions published before May 2020, the data may contain a consistent shift either up or down that starts between April 11–18, 2020.</p>
+              <br><br>
+
+              <p style="font-size:20px"><strong>Data pre-processing: </strong> Google mobility data reports null if there isn’t enough data points to safeguard user privacy. We have applied linear interpolation to dataset to remove null data points as shown below.
+              <br><br>
+              </p>
+        </div>
+
+
+
+
+  <br><br>
+
+      <div class="container">
+        <img src="https://raw.githubusercontent.com/hyunchul78/w209/master/preprocess.jpg" alt="Olympic" style="width:1300px;">
+     </div>
+
+
+        <div style="background-color:white" id="analysis2">
+            <div class="content">
+                <h1 id="analysis1">2 Overview</h1>
+
+               <p style="font-size:20px"><strong>COVID Timeline & Average Change: </strong> Ellie's part.
+              <br><br>
+              </p>
+          </div>
+
+
+
+
+                    <div class='tableauPlaceholder' id='viz1594198034453' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;covid_timeline&#47;COVIDTimeline&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='covid_timeline&#47;COVIDTimeline' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;covid_timeline&#47;COVIDTimeline&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1594198034453');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+               <div class='tableauPlaceholder' id='viz1594320127518' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;covid_timeline&#47;AvgChange&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='covid_timeline&#47;AvgChange' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;covid_timeline&#47;AvgChange&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1594320127518');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='777px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+             <div class="content">
+
+              <br><br>
+               <p style="font-size:20px"><strong>Mobility Trend based on time series plot and map: </strong> Ernesto's part.
+              <br><br>
+              </p>
+          </div>
+
+
+
+              <div class='tableauPlaceholder' id='viz1594273346075' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Covid19_US_States_Mobility&#47;USMobility&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Covid19_US_States_Mobility&#47;USMobility' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Covid19_US_States_Mobility&#47;USMobility&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1594273346075');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1527px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+          <div class="content">
+
+              <br><br>
+               <p style="font-size:20px"><strong>Mobility Trend with slide bar search and map: </strong> Peter's part.
+              <br><br>
+              </p>
+          </div>
+
+
+
+                 <div class='tableauPlaceholder' id='viz1594273294167' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GR&#47;GRC5Y4YMR&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;GRC5Y4YMR' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GR&#47;GRC5Y4YMR&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1594273294167');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2277px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+
+                  <div style="background-color:white">
+            <br>
+            <div class="content">
+                <h2 id="team">5 About Us</h2>
+                <p>
+                    </p><h4>Team Members</h4>
+                    <table cellpadding="50px">
+                        <tbody><tr>
+                            <td>
+                                <div class="team_photo">
+                                    <img alt="Ernesto Oropeza Photo" src="https://ca.slack-edge.com/T0WA5NWKG-UMMNLFVK7-3ec02f1cd184-512">
+                                    <div class="team_info">
+                                        <p>Ernesto Oropeza<br>
+                                            <a href="mailto:ernesto.oropeza@ischool.berkeley.edu">ernesto.oropeza@ischool.berkeley.edu</a><br>
+                                            Graduate student from Masters in Information and Data Science at Berkeley
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="team_photo">
+                                    <img alt="Ellie Huang Photo" src="https://ca.slack-edge.com/T0WA5NWKG-UBXPVNL4S-075669273c59-512">
+                                    <div class="team_info">
+                                        <p>Ellie Huang<br>
+                                            <a href="mailto:lye.huang@ischool.berkeley.edu">lye.huang@ischool.berkeley.edu</a><br>
+                                            Graduate student from Masters in Information and Data Science at Berkeley
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="team_photo">
+                                    <img alt="Peter Kim Photo" src="https://ca.slack-edge.com/T0WA5NWKG-UCH1ZUUF5-1e6cbc9199f9-512">
+                                    <div class="team_info">
+                                        <p>Hyunchul Kim<br>
+                                            <a href="hyunchul78@ischool.berkeley.edu">hyunchul78@ischool.berkeley.edu</a><br>
+                                            Graduate student from Masters in Information and Data Science at Berkeley
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+
+                <p></p>
+            </div>
+        </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body></html>
