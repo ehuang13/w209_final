@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
 <!-- build 20202.20.0415.1946                               -->
-<workbook source-build='2020.2.0 (20202.20.0415.1946)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<workbook source-build='2020.2.0 (20202.20.0415.1946)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <AutoCreateAndUpdateDSDPhoneLayouts />
     <MapboxVectorStylesAndLayers />
@@ -15,6 +15,7 @@
     <WindowsPersistSimpleIdentifiers />
     <ZoneBackgroundTransparency />
   </document-format-change-manifest>
+  <repository-location id='w209_mobility_summary' path='/workbooks' revision='1.0' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -24,10 +25,10 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='US_Mobility_Report_preprocess' name='textscan.1902svk1e4dpro18cwxr80kdb36l'>
-            <connection class='textscan' directory='/Users/acoustics/Github/MIDS/w209_final' filename='US_Mobility_Report_preprocess.csv' password='' server='' />
+            <connection class='textscan' directory='/Users/acoustics/Github/MIDS/w209_final' filename='US_Mobility_Report_preprocess.csv' password='' server='' workgroup-auth-mode='as-is' />
           </named-connection>
           <named-connection caption='us-states' name='textscan.1hqspif0gujwjj12r7e4u1qock2d'>
-            <connection class='textscan' directory='/Users/acoustics/Downloads/covid-19-data-master' filename='us-states.csv' password='' server='' />
+            <connection class='textscan' directory='/Users/acoustics/Downloads/covid-19-data-master' filename='us-states.csv' password='' server='' workgroup-auth-mode='as-is' />
           </named-connection>
         </named-connections>
         <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1902svk1e4dpro18cwxr80kdb36l' name='US_Mobility_Report_preprocess.csv' table='[US_Mobility_Report_preprocess#csv]' type='table'>
@@ -397,7 +398,7 @@
       <column-instance column='[cases]' derivation='Sum' name='[sum:cases:qk]' pivot='key' type='quantitative' />
       <column-instance column='[deaths]' derivation='Sum' name='[sum:deaths:qk]' pivot='key' type='quantitative' />
       <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
-        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='/Users/acoustics/Documents/My Tableau Repository/Datasources/US_Mobility_Report_preprocess.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='07/02/2020 11:41:09 PM' username='tableau_internal_user'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='/Users/acoustics/Documents/My Tableau Repository/Datasources/US_Mobility_Report_preprocess.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
           <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061' table='[Extract].[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]' type='table' />
           <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
             <relation name='US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061' table='[Extract].[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]' type='table' />
@@ -423,9 +424,6 @@
             <map key='[transit_stations]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[transit_stations]' />
             <map key='[workplaces]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[workplaces]' />
           </cols>
-          <refresh>
-            <refresh-event add-from-file-path='US_Mobility_Report_preprocess' increment-value='%null%' refresh-type='create' rows-inserted='305389' timestamp-start='2020-07-02 23:41:09.941' />
-          </refresh>
           <metadata-records>
             <metadata-record class='column'>
               <remote-name>country_region_code</remote-name>
@@ -440,7 +438,6 @@
               <approx-count>1</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RUS' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>country_region</remote-name>
@@ -455,7 +452,6 @@
               <approx-count>1</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RUS' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>state</remote-name>
@@ -470,7 +466,6 @@
               <approx-count>73</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RUS' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>county</remote-name>
@@ -485,7 +480,6 @@
               <approx-count>7228</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RUS' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>iso_3166_2_code</remote-name>
@@ -500,7 +494,6 @@
               <approx-count>1</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RUS' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>census_fips_code</remote-name>
@@ -514,7 +507,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>15106</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>date</remote-name>
@@ -528,7 +520,6 @@
               <aggregation>Year</aggregation>
               <approx-count>114</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>retail_and_recreation</remote-name>
@@ -542,7 +533,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>2674</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>grocery_and_pharmacy</remote-name>
@@ -556,7 +546,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>3497</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>parks</remote-name>
@@ -570,7 +559,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>22823</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>transit_stations</remote-name>
@@ -584,7 +572,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>9316</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>workplaces</remote-name>
@@ -598,7 +585,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>515</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>residential</remote-name>
@@ -612,7 +598,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>3595</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>date</remote-name>
@@ -626,7 +611,6 @@
               <aggregation>Year</aggregation>
               <approx-count>170</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>state</remote-name>
@@ -641,7 +625,6 @@
               <approx-count>55</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RUS' />
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>fips</remote-name>
@@ -655,7 +638,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>55</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>cases</remote-name>
@@ -669,7 +651,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>2593</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>deaths</remote-name>
@@ -683,7 +664,6 @@
               <aggregation>Sum</aggregation>
               <approx-count>1254</approx-count>
               <contains-null>true</contains-null>
-              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
             </metadata-record>
           </metadata-records>
         </connection>
@@ -954,6 +934,20 @@
   <mapsources>
     <mapsource name='Tableau' />
   </mapsources>
+  <shared-views>
+    <shared-view name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+      <datasources>
+        <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+        <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+        <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
+        <groupfilter function='member' level='[md:date:ok]' member='20200607' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
   <worksheets>
     <worksheet name='Mob_G&amp;P'>
       <layout-options>
@@ -979,9 +973,6 @@
             <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
-            <groupfilter function='level-members' level='[md:date:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
           </slices>
@@ -989,8 +980,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]' field-type='quantitative' max='33001781.222971506' min='18528936.497724142' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]' field-type='quantitative' max='13893168.737866616' min='31190.622576752969' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]' field-type='quantitative' max='29383570.041659664' min='22147147.679035984' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]' field-type='quantitative' max='10427674.209044149' min='3496685.1513992189' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='map'>
             <format attr='washout' value='0.0' />
@@ -1027,6 +1018,7 @@
             <column-instance column='[grocery_and_pharmacy]' derivation='Avg' name='[avg:grocery_and_pharmacy:qk]' pivot='key' type='quantitative' />
             <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
             <column caption='Grocery And Pharmacy' datatype='real' name='[grocery_and_pharmacy]' role='measure' type='quantitative' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
             <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
             <column-instance column='[date]' derivation='Week' name='[wk:date:ok]' pivot='key' type='ordinal' />
@@ -1036,6 +1028,7 @@
           </filter>
           <slices>
             <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[wk:date:ok]</column>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -1090,9 +1083,6 @@
             <column caption='Parks' datatype='real' name='[parks]' role='measure' type='quantitative' />
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
-            <groupfilter function='member' level='[md:date:ok]' member='20200215' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
           </slices>
@@ -1146,9 +1136,6 @@
             <column caption='Retail And Recreation' datatype='real' name='[retail_and_recreation]' role='measure' type='quantitative' />
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
-            <groupfilter function='member' level='[md:date:ok]' member='20200215' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
           </slices>
@@ -1201,9 +1188,6 @@
             <column caption='Residential' datatype='real' name='[residential]' role='measure' type='quantitative' />
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
-            <groupfilter function='member' level='[md:date:ok]' member='20200215' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
           </slices>
@@ -1257,9 +1241,6 @@
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
             <column caption='Transit Stations' datatype='real' name='[transit_stations]' role='measure' type='quantitative' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
-            <groupfilter function='member' level='[md:date:ok]' member='20200215' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
           </slices>
@@ -1312,9 +1293,6 @@
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
             <column caption='Workplaces' datatype='real' name='[workplaces]' role='measure' type='quantitative' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
-            <groupfilter function='level-members' level='[md:date:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
           </slices>
@@ -1354,12 +1332,17 @@
             <column-instance column='[deaths]' derivation='Avg' name='[avg:deaths:qk]' pivot='key' type='quantitative' />
             <column caption='Cases' datatype='integer' name='[cases]' role='measure' type='quantitative' />
             <column caption='Date (Us-States.Csv)' datatype='date' name='[date (us-states.csv)]' role='dimension' type='ordinal' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
             <column caption='Deaths' datatype='integer' name='[deaths]' role='measure' type='quantitative' />
             <column-instance column='[cases]' derivation='Max' name='[max:cases:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
             <column-instance column='[date (us-states.csv)]' derivation='Month' name='[mn:date (us-states.csv):ok]' pivot='key' type='ordinal' />
             <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
             <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style>
@@ -1436,6 +1419,7 @@
             <column-instance column='[transit_stations]' derivation='Avg' name='[avg:transit_stations:qk]' pivot='key' type='quantitative' />
             <column-instance column='[workplaces]' derivation='Avg' name='[avg:workplaces:qk]' pivot='key' type='quantitative' />
             <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
             <column-instance column='[date]' derivation='Month' name='[mn:date:ok]' pivot='key' type='ordinal' />
             <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
             <column caption='Parks' datatype='real' name='[parks]' role='measure' type='quantitative' />
@@ -1446,6 +1430,9 @@
             <column caption='Transit Stations' datatype='real' name='[transit_stations]' role='measure' type='quantitative' />
             <column caption='Workplaces' datatype='real' name='[workplaces]' role='measure' type='quantitative' />
           </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style>
@@ -1533,10 +1520,15 @@
             <column-instance column='[cases]' derivation='Avg' name='[avg:cases:qk]' pivot='key' type='quantitative' />
             <column caption='Cases' datatype='integer' name='[cases]' role='measure' type='quantitative' />
             <column caption='Date (Us-States.Csv)' datatype='date' name='[date (us-states.csv)]' role='dimension' type='ordinal' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
             <column-instance column='[date (us-states.csv)]' derivation='Month' name='[mn:date (us-states.csv):ok]' pivot='key' type='ordinal' />
             <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
             <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style>
@@ -1578,9 +1570,14 @@
           <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
             <column-instance column='[cases]' derivation='Avg' name='[avg:cases:qk]' pivot='key' type='quantitative' />
             <column caption='Cases' datatype='integer' name='[cases]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
             <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
             <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style>
@@ -1617,10 +1614,15 @@
           </mapsources>
           <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
             <column-instance column='[deaths]' derivation='Avg' name='[avg:deaths:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
             <column caption='Deaths' datatype='integer' name='[deaths]' role='measure' type='quantitative' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
             <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
             <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
           </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
           <aggregation value='true' />
         </view>
         <style>
@@ -1780,10 +1782,10 @@
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='2150' minheight='2150' sizing-mode='vscroll' />
+          <size maxheight='2250' minheight='2250' sizing-mode='vscroll' />
           <zones>
-            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='24' w='100000' x='0' y='0'>
-              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98770' id='23' param='vert' w='99238' x='381' y='615'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='27' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98770' id='26' param='vert' w='99238' x='381' y='615'>
                 <zone fixed-size='280' h='49385' id='3' is-fixed='true' name='Mob_G&amp;P' w='29754' x='381' y='615'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1848,6 +1850,15 @@
                   </zone-style>
                 </zone>
                 <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='14' name='Mob_Transit' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk]' w='7619' x='92000' y='15615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' fixed-size='155' h='12538' id='25' mode='slider' name='Mob_Work' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' values='database' w='7619' x='92000' y='30615'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -2102,7 +2113,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='3' />
       <simple-id uuid='{05999485-5B55-4DA4-94D0-750AAE45009D}' />
     </window>
     <window class='worksheet' name='Mob_G&amp;P_latest'>

@@ -1,0 +1,2307 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20202.20.0415.1946                               -->
+<workbook source-build='2020.2.0 (20202.20.0415.1946)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <_.fcp.SetMembershipControl.true...SetMembershipControl />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='w209_mobility_summary' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='US_Mobility_Report_preprocess' inline='true' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='US_Mobility_Report_preprocess' name='textscan.1902svk1e4dpro18cwxr80kdb36l'>
+            <connection class='textscan' directory='/Users/acoustics/Github/MIDS/w209_final' filename='US_Mobility_Report_preprocess.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+          <named-connection caption='us-states' name='textscan.1hqspif0gujwjj12r7e4u1qock2d'>
+            <connection class='textscan' directory='/Users/acoustics/Downloads/covid-19-data-master' filename='us-states.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1902svk1e4dpro18cwxr80kdb36l' name='US_Mobility_Report_preprocess.csv' table='[US_Mobility_Report_preprocess#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='country_region_code' ordinal='0' />
+            <column datatype='string' name='country_region' ordinal='1' />
+            <column datatype='string' name='state' ordinal='2' />
+            <column datatype='string' name='county' ordinal='3' />
+            <column datatype='string' name='iso_3166_2_code' ordinal='4' />
+            <column datatype='real' name='census_fips_code' ordinal='5' />
+            <column datatype='date' name='date' ordinal='6' />
+            <column datatype='real' name='retail_and_recreation' ordinal='7' />
+            <column datatype='real' name='grocery_and_pharmacy' ordinal='8' />
+            <column datatype='real' name='parks' ordinal='9' />
+            <column datatype='real' name='transit_stations' ordinal='10' />
+            <column datatype='real' name='workplaces' ordinal='11' />
+            <column datatype='real' name='residential' ordinal='12' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='textscan.1902svk1e4dpro18cwxr80kdb36l' name='US_Mobility_Report_preprocess.csv' table='[US_Mobility_Report_preprocess#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='country_region_code' ordinal='0' />
+              <column datatype='string' name='country_region' ordinal='1' />
+              <column datatype='string' name='state' ordinal='2' />
+              <column datatype='string' name='county' ordinal='3' />
+              <column datatype='string' name='iso_3166_2_code' ordinal='4' />
+              <column datatype='real' name='census_fips_code' ordinal='5' />
+              <column datatype='date' name='date' ordinal='6' />
+              <column datatype='real' name='retail_and_recreation' ordinal='7' />
+              <column datatype='real' name='grocery_and_pharmacy' ordinal='8' />
+              <column datatype='real' name='parks' ordinal='9' />
+              <column datatype='real' name='transit_stations' ordinal='10' />
+              <column datatype='real' name='workplaces' ordinal='11' />
+              <column datatype='real' name='residential' ordinal='12' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1hqspif0gujwjj12r7e4u1qock2d' name='us-states.csv' table='[us-states#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='date' name='date' ordinal='0' />
+              <column datatype='string' name='state' ordinal='1' />
+              <column datatype='integer' name='fips' ordinal='2' />
+              <column datatype='integer' name='cases' ordinal='3' />
+              <column datatype='integer' name='deaths' ordinal='4' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[cases]' value='[us-states.csv].[cases]' />
+          <map key='[census_fips_code]' value='[US_Mobility_Report_preprocess.csv].[census_fips_code]' />
+          <map key='[country_region]' value='[US_Mobility_Report_preprocess.csv].[country_region]' />
+          <map key='[country_region_code]' value='[US_Mobility_Report_preprocess.csv].[country_region_code]' />
+          <map key='[county]' value='[US_Mobility_Report_preprocess.csv].[county]' />
+          <map key='[date (us-states.csv)]' value='[us-states.csv].[date]' />
+          <map key='[date]' value='[US_Mobility_Report_preprocess.csv].[date]' />
+          <map key='[deaths]' value='[us-states.csv].[deaths]' />
+          <map key='[fips]' value='[us-states.csv].[fips]' />
+          <map key='[grocery_and_pharmacy]' value='[US_Mobility_Report_preprocess.csv].[grocery_and_pharmacy]' />
+          <map key='[iso_3166_2_code]' value='[US_Mobility_Report_preprocess.csv].[iso_3166_2_code]' />
+          <map key='[parks]' value='[US_Mobility_Report_preprocess.csv].[parks]' />
+          <map key='[residential]' value='[US_Mobility_Report_preprocess.csv].[residential]' />
+          <map key='[retail_and_recreation]' value='[US_Mobility_Report_preprocess.csv].[retail_and_recreation]' />
+          <map key='[state (us-states.csv)]' value='[us-states.csv].[state]' />
+          <map key='[state]' value='[US_Mobility_Report_preprocess.csv].[state]' />
+          <map key='[transit_stations]' value='[US_Mobility_Report_preprocess.csv].[transit_stations]' />
+          <map key='[workplaces]' value='[US_Mobility_Report_preprocess.csv].[workplaces]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[us-states.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_region_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_region_code]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>country_region_code</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_region]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>country_region</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>county</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[county]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>county</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>iso_3166_2_code</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[iso_3166_2_code]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>iso_3166_2_code</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>census_fips_code</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[census_fips_code]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>census_fips_code</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>retail_and_recreation</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[retail_and_recreation]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>retail_and_recreation</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>grocery_and_pharmacy</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[grocery_and_pharmacy]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>grocery_and_pharmacy</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>parks</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[parks]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>parks</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>transit_stations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[transit_stations]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>transit_stations</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>workplaces</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[workplaces]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>workplaces</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>residential</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[residential]</local-name>
+            <parent-name>[US_Mobility_Report_preprocess.csv]</parent-name>
+            <remote-alias>residential</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date (us-states.csv)]</local-name>
+            <parent-name>[us-states.csv]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state (us-states.csv)]</local-name>
+            <parent-name>[us-states.csv]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fips</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[fips]</local-name>
+            <parent-name>[us-states.csv]</parent-name>
+            <remote-alias>fips</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cases</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cases]</local-name>
+            <parent-name>[us-states.csv]</parent-name>
+            <remote-alias>cases</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deaths</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[deaths]</local-name>
+            <parent-name>[us-states.csv]</parent-name>
+            <remote-alias>deaths</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <_.fcp.ObjectModelTableType.true...column caption='US_Mobility_Report_preprocess.csv' datatype='table' name='[__tableau_internal_object_id__].[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='us-states.csv' datatype='table' name='[__tableau_internal_object_id__].[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]' role='measure' type='quantitative' />
+      <column caption='Cases' datatype='integer' name='[cases]' role='measure' type='quantitative' />
+      <column caption='Census Fips Code' datatype='real' name='[census_fips_code]' role='dimension' type='ordinal' />
+      <column caption='Country Region' datatype='string' name='[country_region]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country Region Code' datatype='string' name='[country_region_code]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='County' datatype='string' name='[county]' role='dimension' semantic-role='[County].[Name]' type='nominal' />
+      <column caption='Date (Us-States.Csv)' datatype='date' name='[date (us-states.csv)]' role='dimension' type='ordinal' />
+      <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+      <column caption='Deaths' datatype='integer' name='[deaths]' role='measure' type='quantitative' />
+      <column caption='Fips' datatype='integer' name='[fips]' role='measure' type='quantitative' />
+      <column caption='Grocery And Pharmacy' datatype='real' name='[grocery_and_pharmacy]' role='measure' type='quantitative' />
+      <column caption='Iso 3166 2 Code' datatype='string' name='[iso_3166_2_code]' role='dimension' type='nominal' />
+      <column caption='Parks' datatype='real' name='[parks]' role='measure' type='quantitative' />
+      <column caption='Residential' datatype='real' name='[residential]' role='measure' type='quantitative' />
+      <column caption='Retail And Recreation' datatype='real' name='[retail_and_recreation]' role='measure' type='quantitative' />
+      <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Transit Stations' datatype='real' name='[transit_stations]' role='measure' type='quantitative' />
+      <column caption='Workplaces' datatype='real' name='[workplaces]' role='measure' type='quantitative' />
+      <column-instance column='[cases]' derivation='Avg' name='[avg:cases:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[deaths]' derivation='Avg' name='[avg:deaths:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[transit_stations]' derivation='Avg' name='[avg:transit_stations:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[workplaces]' derivation='Avg' name='[avg:workplaces:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[cases]' derivation='CountD' name='[ctd:cases:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[deaths]' derivation='CountD' name='[ctd:deaths:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[cases]' derivation='Max' name='[max:cases:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
+      <column-instance column='[cases]' derivation='Sum' name='[sum:cases:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[deaths]' derivation='Sum' name='[sum:deaths:qk]' pivot='key' type='quantitative' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='false' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='/Users/acoustics/Documents/My Tableau Repository/Datasources/US_Mobility_Report_preprocess.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061' table='[Extract].[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+            <relation name='US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061' table='[Extract].[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]' type='table' />
+            <relation name='us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149' table='[Extract].[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]' type='table' />
+          </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+          <cols>
+            <map key='[cases]' value='[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149].[cases]' />
+            <map key='[census_fips_code]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[census_fips_code]' />
+            <map key='[country_region]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[country_region]' />
+            <map key='[country_region_code]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[country_region_code]' />
+            <map key='[county]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[county]' />
+            <map key='[date (us-states.csv)]' value='[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149].[date]' />
+            <map key='[date]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[date]' />
+            <map key='[deaths]' value='[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149].[deaths]' />
+            <map key='[fips]' value='[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149].[fips]' />
+            <map key='[grocery_and_pharmacy]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[grocery_and_pharmacy]' />
+            <map key='[iso_3166_2_code]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[iso_3166_2_code]' />
+            <map key='[parks]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[parks]' />
+            <map key='[residential]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[residential]' />
+            <map key='[retail_and_recreation]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[retail_and_recreation]' />
+            <map key='[state (us-states.csv)]' value='[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149].[state]' />
+            <map key='[state]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[state]' />
+            <map key='[transit_stations]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[transit_stations]' />
+            <map key='[workplaces]' value='[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061].[workplaces]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>country_region_code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country_region_code]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>country_region_code</remote-alias>
+              <ordinal>0</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>country_region</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country_region]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>country_region</remote-alias>
+              <ordinal>1</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[state]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>state</remote-alias>
+              <ordinal>2</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>73</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>county</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[county]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>county</remote-alias>
+              <ordinal>3</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7228</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>iso_3166_2_code</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[iso_3166_2_code]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>iso_3166_2_code</remote-alias>
+              <ordinal>4</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>census_fips_code</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[census_fips_code]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>census_fips_code</remote-alias>
+              <ordinal>5</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>15106</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>6</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>114</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>retail_and_recreation</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[retail_and_recreation]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>retail_and_recreation</remote-alias>
+              <ordinal>7</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2674</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>grocery_and_pharmacy</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[grocery_and_pharmacy]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>grocery_and_pharmacy</remote-alias>
+              <ordinal>8</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3497</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>parks</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[parks]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>parks</remote-alias>
+              <ordinal>9</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>22823</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>transit_stations</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[transit_stations]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>transit_stations</remote-alias>
+              <ordinal>10</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>9316</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>workplaces</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[workplaces]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>workplaces</remote-alias>
+              <ordinal>11</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>515</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>residential</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[residential]</local-name>
+              <parent-name>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</parent-name>
+              <remote-alias>residential</remote-alias>
+              <ordinal>12</ordinal>
+              <family>US_Mobility_Report_preprocess.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3595</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[date (us-states.csv)]</local-name>
+              <parent-name>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</parent-name>
+              <remote-alias>date</remote-alias>
+              <ordinal>13</ordinal>
+              <family>us-states.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>170</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[state (us-states.csv)]</local-name>
+              <parent-name>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</parent-name>
+              <remote-alias>state</remote-alias>
+              <ordinal>14</ordinal>
+              <family>us-states.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>55</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>fips</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[fips]</local-name>
+              <parent-name>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</parent-name>
+              <remote-alias>fips</remote-alias>
+              <ordinal>15</ordinal>
+              <family>us-states.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>55</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>cases</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[cases]</local-name>
+              <parent-name>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</parent-name>
+              <remote-alias>cases</remote-alias>
+              <ordinal>16</ordinal>
+              <family>us-states.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2593</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>deaths</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[deaths]</local-name>
+              <parent-name>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</parent-name>
+              <remote-alias>deaths</remote-alias>
+              <ordinal>17</ordinal>
+              <family>us-states.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1254</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:cases:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[ctd:cases:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[max:cases:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[sum:cases:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[sum:deaths:qk]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:workplaces:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:deaths:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[ctd:deaths:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:state (us-states.csv):nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;District of Columbia&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Nebraska&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Vermont&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Alabama&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Maine&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Pennsylvania&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;California&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Minnesota&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;South Dakota&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Hawaii&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;New Mexico&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;West Virginia&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Florida&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Nevada&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Virgin Islands&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Colorado&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Mississippi&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Tennessee&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Kentucky&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Oklahoma&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Alaska&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Maryland&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Puerto Rico&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Iowa&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Northern Mariana Islands&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Connecticut&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Missouri&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Texas&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Idaho&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;New York&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Wisconsin&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Illinois&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;North Carolina&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Wyoming&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Kansas&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Ohio&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Louisiana&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Oregon&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Georgia&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;New Hampshire&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Virginia&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Delaware&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Montana&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Utah&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Arizona&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Massachusetts&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Rhode Island&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Indiana&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;North Dakota&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Guam&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;New Jersey&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Washington&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Arkansas&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Michigan&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;South Carolina&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='US_Mobility_Report_preprocess.csv' id='US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061'>
+            <properties context=''>
+              <relation connection='textscan.1902svk1e4dpro18cwxr80kdb36l' name='US_Mobility_Report_preprocess.csv' table='[US_Mobility_Report_preprocess#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='country_region_code' ordinal='0' />
+                  <column datatype='string' name='country_region' ordinal='1' />
+                  <column datatype='string' name='state' ordinal='2' />
+                  <column datatype='string' name='county' ordinal='3' />
+                  <column datatype='string' name='iso_3166_2_code' ordinal='4' />
+                  <column datatype='real' name='census_fips_code' ordinal='5' />
+                  <column datatype='date' name='date' ordinal='6' />
+                  <column datatype='real' name='retail_and_recreation' ordinal='7' />
+                  <column datatype='real' name='grocery_and_pharmacy' ordinal='8' />
+                  <column datatype='real' name='parks' ordinal='9' />
+                  <column datatype='real' name='transit_stations' ordinal='10' />
+                  <column datatype='real' name='workplaces' ordinal='11' />
+                  <column datatype='real' name='residential' ordinal='12' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061' table='[Extract].[US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061]' type='table' />
+            </properties>
+          </object>
+          <object caption='us-states.csv' id='us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149'>
+            <properties context=''>
+              <relation connection='textscan.1hqspif0gujwjj12r7e4u1qock2d' name='us-states.csv' table='[us-states#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' name='date' ordinal='0' />
+                  <column datatype='string' name='state' ordinal='1' />
+                  <column datatype='integer' name='fips' ordinal='2' />
+                  <column datatype='integer' name='cases' ordinal='3' />
+                  <column datatype='integer' name='deaths' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149' table='[Extract].[us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[state]' />
+              <expression op='[state (us-states.csv)]' />
+            </expression>
+            <first-end-point object-id='US_Mobility_Report_preprocess.csv_81189B61FA064A0E8AE7356951EBC061' />
+            <second-end-point object-id='us-states.csv_39313EBBD1FB4F059B6439CF0A0E6149' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <shared-views>
+    <shared-view name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+      <datasources>
+        <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+        <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+        <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]'>
+        <groupfilter function='member' level='[md:date:ok]' member='20200607' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='Mob_G&amp;P'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average mobility change :Grocery &amp; Pharmacy</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[grocery_and_pharmacy]' derivation='Avg' name='[avg:grocery_and_pharmacy:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column caption='Grocery And Pharmacy' datatype='real' name='[grocery_and_pharmacy]' role='measure' type='quantitative' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]' field-type='quantitative' max='33001781.222971506' min='18528936.497724146' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]' field-type='quantitative' max='13893168.737866614' min='31190.622576754075' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:grocery_and_pharmacy:qk]' />
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{A4EEEF19-0431-45A1-A008-9165EC4FAE92}' />
+    </worksheet>
+    <worksheet name='Mob_G&amp;P_latest'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[grocery_and_pharmacy]' derivation='Avg' name='[avg:grocery_and_pharmacy:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column caption='Grocery And Pharmacy' datatype='real' name='[grocery_and_pharmacy]' role='measure' type='quantitative' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[date]' derivation='Week' name='[wk:date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[wk:date:ok]'>
+            <groupfilter function='member' level='[wk:date:ok]' member='24' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[wk:date:ok]</column>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]' field-type='quantitative' max='33183131.480788276' min='18566053.783267349' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]' field-type='quantitative' max='12594411.08874944' min='1043784.6519451623' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:grocery_and_pharmacy:qk]' />
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{DE78195F-1613-4B89-9129-240D3BA55E6F}' />
+    </worksheet>
+    <worksheet name='Mob_Parks'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average mobility change :Parks</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[parks]' derivation='Avg' name='[avg:parks:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='Parks' datatype='real' name='[parks]' role='measure' type='quantitative' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:parks:qk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{F96E7FD4-F886-4959-8FEA-A848BC53A9DF}' />
+    </worksheet>
+    <worksheet name='Mob_R&amp;R'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average mobility change :Retail &amp; Recreation
+</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[retail_and_recreation]' derivation='Avg' name='[avg:retail_and_recreation:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='Retail And Recreation' datatype='real' name='[retail_and_recreation]' role='measure' type='quantitative' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:retail_and_recreation:qk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{122419A8-F415-439E-98AB-72EFDC213498}' />
+    </worksheet>
+    <worksheet name='Mob_Res'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average mobility change :Residential</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[residential]' derivation='Avg' name='[avg:residential:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='Residential' datatype='real' name='[residential]' role='measure' type='quantitative' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:residential:qk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{7FC44E57-F4BB-4564-B862-5A1016F57CB4}' />
+    </worksheet>
+    <worksheet name='Mob_Transit'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average mobility change :Transit Station
+</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[transit_stations]' derivation='Avg' name='[avg:transit_stations:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Transit Stations' datatype='real' name='[transit_stations]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{659198AE-8289-490F-AAD7-029A703C598A}' />
+    </worksheet>
+    <worksheet name='Mob_Work'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average mobility change :Work Place</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[workplaces]' derivation='Avg' name='[avg:workplaces:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Workplaces' datatype='real' name='[workplaces]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:workplaces:qk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{38688C80-4621-418F-A94F-F29772A0412C}' />
+    </worksheet>
+    <worksheet name='Sheet 10'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[cases]' derivation='Avg' name='[avg:cases:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[deaths]' derivation='Avg' name='[avg:deaths:qk]' pivot='key' type='quantitative' />
+            <column caption='Cases' datatype='integer' name='[cases]' role='measure' type='quantitative' />
+            <column caption='Date (Us-States.Csv)' datatype='date' name='[date (us-states.csv)]' role='dimension' type='ordinal' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column caption='Deaths' datatype='integer' name='[deaths]' role='measure' type='quantitative' />
+            <column-instance column='[cases]' derivation='Max' name='[max:cases:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[date (us-states.csv)]' derivation='Month' name='[mn:date (us-states.csv):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
+            <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[mn:date (us-states.csv):ok]' value='115' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:cases:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:deaths:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[max:cases:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:cases:qk] + ([federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:deaths:qk] + [federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[max:cases:qk]))</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[mn:date (us-states.csv):ok]</cols>
+      </table>
+      <simple-id uuid='{47C1CF0A-B975-4434-B8A0-C91487BDA916}' />
+    </worksheet>
+    <worksheet name='Sheet 11'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[transit_stations]' derivation='Avg' name='[avg:transit_stations:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[workplaces]' derivation='Avg' name='[avg:workplaces:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[date]' derivation='Month' name='[mn:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
+            <column caption='Parks' datatype='real' name='[parks]' role='measure' type='quantitative' />
+            <column caption='Retail And Recreation' datatype='real' name='[retail_and_recreation]' role='measure' type='quantitative' />
+            <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[parks]' derivation='Sum' name='[sum:parks:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[retail_and_recreation]' derivation='Sum' name='[sum:retail_and_recreation:qk]' pivot='key' type='quantitative' />
+            <column caption='Transit Stations' datatype='real' name='[transit_stations]' role='measure' type='quantitative' />
+            <column caption='Workplaces' datatype='real' name='[workplaces]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[mn:date:ok]' value='109' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:workplaces:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[sum:retail_and_recreation:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[sum:parks:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk] + ([federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:workplaces:qk] + ([federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[sum:retail_and_recreation:qk] + [federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[sum:parks:qk])))</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[mn:date:ok]</cols>
+      </table>
+      <simple-id uuid='{5B53820F-2E5F-4A80-BB36-69C5ADECC698}' />
+    </worksheet>
+    <worksheet name='Sheet 12'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[cases]' derivation='Avg' name='[avg:cases:qk]' pivot='key' type='quantitative' />
+            <column caption='Cases' datatype='integer' name='[cases]' role='measure' type='quantitative' />
+            <column caption='Date (Us-States.Csv)' datatype='date' name='[date (us-states.csv)]' role='dimension' type='ordinal' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[date (us-states.csv)]' derivation='Month' name='[mn:date (us-states.csv):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
+            <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[mn:date (us-states.csv):ok]' value='137' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:cases:qk]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[mn:date (us-states.csv):ok]</cols>
+      </table>
+      <simple-id uuid='{6C96E3CC-9B5E-45C0-A5B9-3C2B3400EC00}' />
+    </worksheet>
+    <worksheet name='Sheet 8'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[cases]' derivation='Avg' name='[avg:cases:qk]' pivot='key' type='quantitative' />
+            <column caption='Cases' datatype='integer' name='[cases]' role='measure' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:cases:qk]' />
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state:nk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{83CE8397-9FE9-40F3-9723-BBC564117660}' />
+    </worksheet>
+    <worksheet name='Sheet 9'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+            <column-instance column='[deaths]' derivation='Avg' name='[avg:deaths:qk]' pivot='key' type='quantitative' />
+            <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column caption='Deaths' datatype='integer' name='[deaths]' role='measure' type='quantitative' />
+            <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state (us-states.csv)]' derivation='None' name='[none:state (us-states.csv):nk]' pivot='key' type='nominal' />
+            <column caption='State (Us-States.Csv)' datatype='string' name='[state (us-states.csv)]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' />
+              <color column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:deaths:qk]' />
+              <geometry column='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Geometry (generated)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Latitude (generated)]</rows>
+        <cols>[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{5446F901-EBD1-4139-84FD-497F7C38207E}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='1300' maxwidth='2100' minheight='1300' minwidth='2100' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='US_Mobility_Report_preprocess' name='federated.1qeu0g90wh5r161f4ze0w0vfi3ih' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1qeu0g90wh5r161f4ze0w0vfi3ih'>
+        <column caption='Date' datatype='date' name='[date]' role='dimension' type='ordinal' />
+        <column-instance column='[date]' derivation='MDY' name='[md:date:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98770' id='7' param='horz' w='99238' x='381' y='615'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98770' id='5' w='91619' x='381' y='615'>
+              <zone h='49385' id='3' name='Mob_G&amp;P' w='29754' x='381' y='615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49385' id='9' name='Mob_Parks' w='32870' x='30135' y='615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49385' id='11' name='Mob_R&amp;R' w='28995' x='63005' y='615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49385' id='13' name='Mob_Transit' w='29754' x='381' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49385' id='15' name='Mob_Work' w='32870' x='30135' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49385' id='17' name='Mob_Res' w='28995' x='63005' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' fixed-size='160' h='98770' id='6' is-fixed='true' param='vert' w='7619' x='92000' y='615'>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='8' name='Mob_G&amp;P' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:grocery_and_pharmacy:qk]' w='7619' x='92000' y='615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='10' name='Mob_Parks' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:parks:qk]' w='7619' x='92000' y='5615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='12' name='Mob_R&amp;R' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:retail_and_recreation:qk]' w='7619' x='92000' y='10615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='14' name='Mob_Transit' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk]' w='7619' x='92000' y='15615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='16' name='Mob_Work' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:workplaces:qk]' w='7619' x='92000' y='20615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='18' name='Mob_Res' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:residential:qk]' w='7619' x='92000' y='25615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' fixed-size='155' h='12538' id='25' is-fixed='true' mode='slider' name='Mob_Work' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' values='database' w='7619' x='92000' y='30615'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='2250' minheight='2250' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='27' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98770' id='26' param='vert' w='99238' x='381' y='615'>
+                <zone fixed-size='280' h='49385' id='3' is-fixed='true' name='Mob_G&amp;P' w='29754' x='381' y='615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='8' name='Mob_G&amp;P' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:grocery_and_pharmacy:qk]' w='7619' x='92000' y='615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49385' id='9' is-fixed='true' name='Mob_Parks' w='32870' x='30135' y='615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='10' name='Mob_Parks' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:parks:qk]' w='7619' x='92000' y='5615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49385' id='11' is-fixed='true' name='Mob_R&amp;R' w='28995' x='63005' y='615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='12' name='Mob_R&amp;R' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:retail_and_recreation:qk]' w='7619' x='92000' y='10615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49385' id='13' is-fixed='true' name='Mob_Transit' w='29754' x='381' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='14' name='Mob_Transit' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk]' w='7619' x='92000' y='15615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' fixed-size='155' h='12538' id='25' mode='slider' name='Mob_Work' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' values='database' w='7619' x='92000' y='30615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49385' id='15' is-fixed='true' name='Mob_Work' w='32870' x='30135' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='16' name='Mob_Work' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:workplaces:qk]' w='7619' x='92000' y='20615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49385' id='17' is-fixed='true' name='Mob_Res' w='28995' x='63005' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='5000' id='18' name='Mob_Res' pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:residential:qk]' w='7619' x='92000' y='25615'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{0498E0D7-A998-4E3F-8C0C-B0DCC05EA331}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Mob_G&amp;P'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:grocery_and_pharmacy:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EBEF7B5B-4BFA-4349-A90E-18184B8EC7D0}' />
+    </window>
+    <window class='worksheet' name='Mob_Parks'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:parks:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{884BEA94-DD51-450D-BABA-66C44C4C009A}' />
+    </window>
+    <window class='worksheet' name='Mob_R&amp;R'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:retail_and_recreation:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7C7F1510-4A60-4A6B-A07A-107D59F9BA57}' />
+    </window>
+    <window class='worksheet' name='Mob_Transit'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:transit_stations:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AB281B38-BC8D-4352-8A9A-354485B8B849}' />
+    </window>
+    <window class='worksheet' name='Mob_Work'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:workplaces:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8FAB731A-8157-404D-8AA2-58CDD127DB96}' />
+    </window>
+    <window class='worksheet' name='Mob_Res'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[md:date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:residential:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{90EB85C0-76E4-4C8E-99E8-3A12BAA52C09}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Mob_G&amp;P'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Mob_Parks'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Mob_R&amp;R'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Mob_Res'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Mob_Transit'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Mob_Work'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='3' />
+      <simple-id uuid='{05999485-5B55-4DA4-94D0-750AAE45009D}' />
+    </window>
+    <window class='worksheet' name='Mob_G&amp;P_latest'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='slider' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[wk:date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:grocery_and_pharmacy:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B7B906ED-2024-4237-AF12-C2FCDB7CB763}' />
+    </window>
+    <window class='worksheet' name='Sheet 8'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:cases:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DB4EC285-0482-4463-9B60-FAF8CCD13A42}' />
+    </window>
+    <window class='worksheet' name='Sheet 9'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[avg:deaths:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DB0F7D9A-6299-4C74-9AE5-541ADF1FA771}' />
+    </window>
+    <window class='worksheet' name='Sheet 10'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{6DC8D955-F1F6-4AF0-B5DF-D4FD8F45FC03}' />
+    </window>
+    <window class='worksheet' name='Sheet 11'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DE1F549E-A3B9-4160-BE28-F3A2B5CF63D7}' />
+    </window>
+    <window class='worksheet' name='Sheet 12'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1qeu0g90wh5r161f4ze0w0vfi3ih].[none:state (us-states.csv):nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{29D8286A-1C60-4C77-A8CA-B0C7A541DDBE}' />
+    </window>
+  </windows>
+</workbook>
