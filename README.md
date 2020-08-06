@@ -13,3 +13,9 @@ This repository contains all the resources we have used to create MIDS W209 fina
 - peter/ernesto/ellie : Each folder includes Tableau workbook used for our visualization
 - Website: This folder includes html and css file used to design our landing page.
 
+
+<p align="center"><img src="ernesto/website_ernesto/ellie_tableau.png"></p> 
+
+<p align="center"><img src="ernesto/website_ernesto/peter_tableau.png"></p> 
+
+<p align="center"><img src="ernesto/website_ernesto/ernesro_tableau.png"></p> 
