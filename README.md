@@ -12,10 +12,10 @@ This repository contains all the resources we have used to create MIDS W209 fina
 - data : It contains original mobility data & preprocessed mobility data. 
 - peter/ernesto/ellie : Each folder includes Tableau workbook used for our visualization
 - Website: This folder includes html and css file used to design our landing page.
-[Google](https://www.google.com) 
+[COVID-19: Mobillity Report](http://people.ischool.berkeley.edu/~hyunchul78/COVID19/index.html) 
 
-<p align="center"><img src="ellie_tableau.png"></p> 
+<p align="center"><img src="ellie_tableau.png" width="200"></p> 
 
-<p align="center"><img src="peter_tableau.png"></p> 
+<p align="center"><img src="peter_tableau.png" width="200"></p> 
 
-<p align="center"><img src="ernesro_tableau.png"></p> 
+<p align="center"><img src="ernesro_tableau.png" width="200"></p> 
