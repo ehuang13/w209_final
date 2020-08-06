@@ -26,7 +26,16 @@ This repository contains all the resources we have used to create MIDS W209 fina
          
 
 - "peter/ernesto/ellie" folder : Each folder includes Tableau workbook used for our visualization
+
+         - Ellie's Tableau workbook file : Covid_timeline.twb, categories.twb
+         
+         - Peter's Tableau workbook file : Coronavirus (COVID-19) Cases.twb
+                  
+         - Ernesto's Tableau workbook file : Mobility_final_w209_ernesto.twb
+
 <p align="center"><img src="tableau.png" width="800"></p> 
+
+
 
 
 
