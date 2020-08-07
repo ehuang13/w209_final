@@ -1,6 +1,6 @@
 # w209_final project
 
-<p align="center"><img src="ernesto/website_ernesto/covid_usa.png" width="600"></p> 
+<p align="center"><img src="w209_final/website/COVID19/covid_usa.png" width="600"></p> 
 
 ## License
 MIT License, refer to the license.md file.
