@@ -1,56 +1,111 @@
-.header {
-  background-color: #1abc9c;
-  padding: 15px;
+.title1{
+  margin:3px;
+  min-height:400px;
+  text-align:center;
+  color:#ffcc66;
+  text-shadow: 2px 2px grey;
+}
+
+#intro {
+  /* margin-top: 40px;
+  margin-bottom: 40px; */
+  border: 25px;
+  border: 2px solid #0033cc;
+  padding: 20px;
+  overflow-y: auto;
+  height: 270px; // Fixed height
+  max-height: 100%;
+}
+#mission {
+  /* margin-top: 40px;
+  margin-bottom: 40px; */
+
+  border: 25px;
+  border: 2px solid #0033cc;
+  padding: 20px;
+  overflow-y: auto;
+  height: 270px; // Fixed height
+  max-height: 100%;
+}
+#visuals {
+  /* margin-top: 40px;
+  margin-bottom: 40px; */
+  border: 25px;
+  border: 2px solid #0033cc;
+  padding: 20px;
+  overflow-y: auto;
+  height: 270px; // Fixed height
+  max-height: 100%;
+}
+
+.tooltip-inner{
+  /* visibility: hidden; */
+  width: 1000px;
+  background-color: steelblue;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px 20;
+}
+
+#an1{
+  text-align:center;
+  margin: 3px;
+}
+#an2{
+  text-align:center;
+  margin: 3px;
+}
+#an3{
+  text-align:center;
+  margin: 3px;
+}
+#an4{
+  text-align:center;
+  margin: 3px;
+}
+#an5{
+  text-align:center;
+  margin: 3px;
+}
+#an6{
+  text-align:center;
+  margin: 3px;
+}
+
+.tableauViz{
+  width: 400px;
+  height: 300px
+}
+
+.team_info{
   text-align: center;
+  /*width: 150px;*/
+  padding: 20px 20px;
 }
 
-#navbar {
-  overflow: hidden;
-  background-color: lightblue;
-  z-index: 999;
-  /*position: absolute;*/
-  /*padding-left: 250px;*/
-  width: 1500px;
-  margin: auto;
-
-  /*padding: 50px;*/
-}
-
-#navbar a {
-  float: left;
-  display: block;
-  color: #ffffff;
+.team_photo{
+  background-color: white;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 25px;
-
+  border-radius: 10px;
+  /*border: 1px solid #ddd;*/
+/*  padding-left: 5%;
+  padding-right: 5%;*/
+  /*width: 80%;*/
+  width: 300px;
+  height: 320px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
 }
 
+.team_photo img{
+  width: 50%;
+  max-height: 70%;
+  /*height: auto;*/
+  border-radius: 10px;
+  margin-top: 10%;
+  margin-left: 25%;
+  margin-right: 10%;
 
-
-.content {
-
-  padding: 20px 50px 20px 50px;
-  font-size: 17;
-}
-
-.sticky {
-  position: sticky;
-  top: 0;
-  /*width: 100%;*/
-  width: 1800px;
-  margin: auto;
-}
-
-.sticky + .content {
-  padding-top: 60px;
-}
-
-#wrapper {
-  /*border: 1px solid #000;*/
-  width: 1300px;
-  margin: auto;
 }
 
 .container {
@@ -67,48 +122,4 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-}
-
-.team_info{
-  text-align: center;
-  /*width: 150px;*/
-  padding: 20px 20px;
-}
-
-.team_photo{
-
-  background-color: white;
-  text-align: center;
-  border-radius: 10px;
-  /*border: 1px solid #ddd;*/
-/*  padding-left: 5%;
-  padding-right: 5%;*/
-  /*width: 80%;*/
-  width: 270px;
-  height: 300px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-
-}
-.team_photo img{
-  width: 50%;
-  max-height: 70%;
-  /*height: auto;*/
-  border-radius: 10px;
-    margin-top: 10%;
-    margin-left: 25%;
-    margin-right: 10%;
-
-}
-
-
-
-#navbar a:hover:not(.active) {
-  background-color: #ddd;
-  color: black;
-}
-
-#navbar a.active {
-  background-color: #4CAF50;
-  color: white;
 }
